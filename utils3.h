@@ -100,7 +100,7 @@ public:
             for (int j = 0; j < CHROMOSOMES_SIZE; j++)
             {
                 for (int k = 0; k < 183; k++) population[x][k] = closest[i][k];
-                population[x][j] = j % 54;
+                population[x][j] = j % 55;
                 x++;
             }
         }

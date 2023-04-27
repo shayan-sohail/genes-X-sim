@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(genes-X-sim)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2")
 
 add_executable(genes1 main1.cpp)
 add_executable(genes2 main2.cpp)

@@ -11,7 +11,7 @@ constexpr int POPULATION_SIZE = 30;
 constexpr int MAX_POPULATION_SIZE = 109890;
 constexpr int CHROMOSOMES_SIZE = 183;
 constexpr int MAX_POOL = 30;
-constexpr int MAX_ITERATIONS = 100;
+constexpr int MAX_ITERATIONS = 10000;
 
 
 using Gene = struct Gene
@@ -27,7 +27,7 @@ using Gene = struct Gene
 class Utils
 {
 public:
-    static void get_euclidean_distances(std::vector<Gene>& population, Gene original, std::vector<double>& dists)
+    static void get_euclidean_distances(std::vector<Gene>& population, Gene& original, std::vector<double>& dists)
     {
         std::fill(dists.begin(), dists.end(), 0);
         for (int i = 0; i < MAX_POPULATION_SIZE; i++)
@@ -40,7 +40,7 @@ public:
         }
     }
 
-    static void get_closest_matches(std::vector<Gene>& population, std::vector<Gene>& closest, std::vector<double>& dists)
+    static void get_closest_matches(std::vector<Gene>& population, std::vector<Gene>& closest, std::vector<double>& dists, Gene& original)
     {
         static int iteration = 1;
         std::vector<double> sorted_dists = dists;
@@ -50,6 +50,7 @@ public:
         {
             closest[i] = population[std::distance(dists.begin(), std::find(dists.begin(), dists.end(), sorted_dists[i]))];
         }
+
         iteration++;
     }
 
@@ -100,7 +101,7 @@ public:
             for (int j = 0; j < CHROMOSOMES_SIZE; j++)
             {
                 population[x] = closest[i];
-                population[x].chromosomes[j] = rand() % 54;
+                population[x].chromosomes[j] = rand() % 55;
                 x++;
             }
         }

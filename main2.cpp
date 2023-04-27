@@ -7,14 +7,14 @@ std::random_device rd;
 void initialize(std::vector<std::vector<int>>& population, std::vector<int> original, std::vector<double>& dists, std::vector<std::vector<int>>& closest)
 {
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dist(0, 53);
+    std::uniform_int_distribution<int> dist(0, 54);
     int x = 0;
     for (int i = 0; i < POPULATION_SIZE; i++)
     {
 
         for (int j = 0; j < CHROMOSOMES_SIZE; j++)
         {
-            population[i][j] = x % 54;
+            population[i][j] = x % 55;
             dists[i] += pow(original[j] - population[i][j], 2);
             x++;
         }

@@ -23,7 +23,7 @@ void initialize(int**& population, int* original, double*& dists, double*& sorte
     {
         for (int j = 0; j < CHROMOSOMES_SIZE; j++)
         {
-            population[i][j] = x % 54;
+            population[i][j] = x % 55;
             dists[i] += pow(original[j] - population[i][j], 2);
             x++;
         }
@@ -122,7 +122,7 @@ void mutate(int**& population, int**& closest, int offset)
         for (int j = 0; j < CHROMOSOMES_SIZE; j++)
         {
             for (int k = 0; k < 183; k++) population[x][k] = closest[i][k];
-            population[x][j] = j % 54;
+            population[x][j] = j % 55;
             x++;
         }
     }

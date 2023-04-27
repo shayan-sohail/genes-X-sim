@@ -89,7 +89,7 @@ public:
             for (int j = 0; j < CHROMOSOMES_SIZE; j++)
             {
                 population[x] = closest[i];
-                population[x][j] = j % 54;
+                population[x][j] = j % 55;
                 x++;
             }
         }

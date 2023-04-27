@@ -10,7 +10,7 @@ void initialize(int**& population, int* original, double*& dists, double*& sorte
     {
         for (int j = 0; j < CHROMOSOMES_SIZE; j++)
         {
-            population[i][j] = x % 54;
+            population[i][j] = x % 55;
             dists[i] += pow(original[j] - population[i][j], 2);
             x++;
         }

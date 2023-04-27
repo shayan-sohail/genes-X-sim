@@ -7,14 +7,14 @@ std::random_device rd;
 void initialize(std::vector<Gene>& pop)
 {
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dist(0, 53);
+    std::uniform_int_distribution<int> dist(0, 54);
     for (auto& p : pop) std::generate(p.chromosomes.begin(), p.chromosomes.end(), [&dist, &gen]() { return dist(gen); });
 }
 
 void initialize(std::vector<Gene>& population, Gene original, std::vector<double>& dists, std::vector<Gene>& closest)
 {
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dist(0, 53);
+    std::uniform_int_distribution<int> dist(0, 54);
     for (int i = 0; i < POPULATION_SIZE; i++)
     {
         std::generate(population[i].chromosomes.begin(), population[i].chromosomes.end(), [&dist, &gen]() { return dist(gen); });
@@ -59,7 +59,7 @@ int main()
         iterations++;
         printf("Iteration: %d\n", iterations);
         Utils::get_euclidean_distances(population, original, euc_distances);
-        Utils::get_closest_matches(population, closest, euc_distances);
+        Utils::get_closest_matches(population, closest, euc_distances, original);
         Utils::mutate(population, closest, Utils::combinational_crossing(population, closest));
     }
     now = std::chrono::system_clock::now();
